@@ -12,11 +12,12 @@
    Develop a way to visualize USGS data that will allow the USGS to better educate the public and other government organizations on issues facing the planet. 
 
 # Data Engineering
-    1. D3 Library
-    2. GeoJSON
-    3. HTML
-    4. JavaScript
-    5. Leaflet.js library
+    1. CSS
+    2. D3 Library
+    3. GeoJSON
+    4. HTML
+    5. JavaScript
+    6. Leaflet.js library
 
 # Data Analysis
     1. Map Creation
