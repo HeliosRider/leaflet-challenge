@@ -31,5 +31,5 @@
         c. All data points verified to have a tooltip with the Magnitude, the location and depth 
         e. All data points verified to load in the correct locations 
 # Outcome
-    an interactrive map was created using the data engineering processes. The user will be able to identify the severity of earthwaukes
+    An interactrive USGS map was created using the data engineering processes. The user will be able to identify the severity of earthwaukes
     in a given location.
