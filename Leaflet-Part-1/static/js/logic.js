@@ -4,12 +4,11 @@ console.log(usgsURL)
 
 // Perform a GET request to the usgsURL/
 d3.json(usgsURL).then 
-((data) => 
- {
+((data) => {
   // Once we get a response, send the data.features object to the createFeatures function.
-   console.log(data.features)
+  console.log(data.features);
   createFeatures(data.features);
- }
+}
 );
 
 // change the color based on feature's of the earthquake depth
@@ -34,7 +33,7 @@ function createFeatures(earthquakeData)
   console.log(earthquakeData);
   // Define a function that we want to run once for each feature in the features array.
   // Give each feature a popup that describes the place and time of the earthquake.
-  function doOnEachFeature(feature, layer) 
+  function forEachFeature(feature, layer) 
 
   {// Each point has a tooltip with the Magnitude, the location and depth
       // date was interesting to post also
@@ -43,28 +42,28 @@ function createFeatures(earthquakeData)
 
   // Create a GeoJSON layer that contains the features array on the earthquakeData object.
   // Run the onEachFeature function once for each piece of data in the array.
-  //parsing the data and has default features we can use for further processing.
+  // parsing the data and has default features we can use for further processing.
  let earthquakes = L.geoJSON
  (earthquakeData, 
     {pointToLayer: function(feature, latlng) 
       {return new L.CircleMarker
        (latlng, 
           { // data points scale with magnitude level
-            radius:feature.properties.mag * 3,
+            radius:feature.properties.mag * 5,
             // data points colors change with depth level
             fillColor: getColor(feature.geometry.coordinates[2]),
-            color: 'black',        //getColor(feature.geometry.coordinates[2]),
-            weight: .2,
-            opacity: .8,
-            fillOpacity: 3   //0.35
+            color: '#00050c',        
+            weight: 1,
+            opacity: 1.0,
+            fillOpacity: .85  
           }
         );
       },
-    onEachFeature: doOnEachFeature
+     onEachFeature: forEachFeature
     }
   );
 
-  // Send our earthquakes layer to the createMap function/
+  // Send our earthquakes layer to the createMap function
   createMap(earthquakes);
 }
 
@@ -73,15 +72,15 @@ function createMap(earthquakes)
     let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
       {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
 
-  let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', 
+  let topGraph = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', 
       {attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'}
       );
  
   // Create a baseMaps object.
-  var baseMaps = 
+  let baseMaps = 
   {
     "Street Map": street,
-    "Topographic Map": topo
+    "Topographic Map": topGraph
   };
 
   // Create an overlay object to hold our overlay.
@@ -93,10 +92,11 @@ function createMap(earthquakes)
   // Create our map, giving it the streetmap and earthquakes layers to display on load.
   let map = L.map("map", 
   {
-    center: [
+    center: 
+    [
       37.09, -95.71
     ],
-    zoom: 4,
+    zoom: 3,
     layers: [street, earthquakes]
   });
   
@@ -107,11 +107,11 @@ function createMap(earthquakes)
 
     for (let i = 0; i < depth.length; i++) 
       {
-        let item = `<li style='background: ${colors[i]} '></li>   ${depth [i]}<br>`
-        // console.log(item);
-        div.innerHTML += item
+        let item = `<li style='background: ${colors[i]} '></li>${depth [i]}<br>`
+        console.log(item);
+        div.innerHTML += item;
       }
-      return div 
+    return div 
   };
   legend.addTo(map);
 
@@ -123,5 +123,4 @@ function createMap(earthquakes)
   {collapsed: false}
   // Add the layer control to the map.
  ).addTo(map);
-
 }
