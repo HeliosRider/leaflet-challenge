@@ -1,8 +1,8 @@
 # Leaflet-Challenge
-    Earthquake mapping.
+    Mapping of United States Geological Survey (USGS) earthquake data.
          
 # Background
-    The United States Geological Survey (USGS) is interested in building a new set of tools that will allow them to visualize their earthquake data. They collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. 
+    The USGS is interested in building a new set of tools that will allow them to visualize their earthquake data. They collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. 
 
 # Task
     Develop a way to visualize USGS data that will allow the USGS to better educate the public and other government organizations on issues facing the planet. 
