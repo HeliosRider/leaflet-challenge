@@ -132,3 +132,10 @@ function createMap(earthquakes)
   // Add the layer control to the map.
  ).addTo(map);
 }
+
+// References: 
+    // a. "https://stackoverflow.com/questions/28168879"
+    // b. "https://gis.stackexchange.com/questions/355100/vuejs-leaflet-get-color-function"
+    // c. "https://www.google.com/search?q=new+date(feature.properties.time)+javascript&rlz"
+    // d. "https://leafletjs.com/examples/geojson/"
+    // e. "https://leafletjs.com/examples/choropleth/"

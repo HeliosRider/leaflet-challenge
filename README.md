@@ -32,10 +32,3 @@
     An interactrive USGS map was created using the data engineering processes. The user will be able to identify the severity of earthwaukes
     in a given location.
 
-# References 
-    a. "https://stackoverflow.com/questions/28168879"
-    b. "https://gis.stackexchange.com/questions/355100/vuejs-leaflet-get-color-function"
-    c. "https://www.google.com/search?q=new+date(feature.properties.time)+javascript&rlz"
-    d. "https://leafletjs.com/examples/geojson/"
-    e. "https://leafletjs.com/examples/choropleth/"
-        
