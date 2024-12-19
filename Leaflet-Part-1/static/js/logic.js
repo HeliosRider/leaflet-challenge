@@ -15,11 +15,13 @@ d3.json(usgsURL).then
 );
 
 // Make earthquake depth data points colors change with depth level
+// Using an array
 depth = ['-10-10','10-30','30-50','50-70','70-90','90+'];
 colors = ['Lavender','thistle','Plum','Violet','Hotpink','Purple']
 
 function getColor(d)
 // This function takes the value of d and returns a color string based on its magnitude. 
+// Reference (a), (b), and (e).
 {
   // Passing the earthquake depth data points into the circle color function
   return  d > 90 ?  colors[5]:
@@ -40,12 +42,13 @@ function createFeatures(earthquakeData)
   function forEachFeature(feature, layer) 
 
   {// Each point has a tooltip with the Magnitude, location, and depth.
-      // Converted timestamp value using new Date().
+      // Converted timestamp value to acutal date using new Date(). Reference (c)
     layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p><ul><li>Earthquake Magnitude: ${feature.properties.mag}</li><li>Earthquake Depth: ${feature.geometry.coordinates[2]}</li></ul>`);
   }
 
   // Create a GeoJSON layer that contains the features array on the earthquakeData object.
   // Run the onEachFeature function once for each piece of data in the array.
+  // Reference (d)
  let earthquakes = L.geoJSON
  (earthquakeData, 
     {pointToLayer: function(feature, latlng) 
@@ -72,10 +75,11 @@ function createFeatures(earthquakeData)
 
 function createMap(earthquakes) 
 { // Create the base layers.
+  // Reference (e)
     let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
       {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
 
-  let topGraph = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', 
+    let topGraph = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', 
       {attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'}
       );
  
@@ -104,6 +108,7 @@ function createMap(earthquakes)
   });
   
   // Create a legend to add to map
+  // Reference (e)
   let legend = L.control({position: 'bottomright'});
   legend.onAdd = function () 
   {let div = L.DomUtil.create('div', 'info legend');
