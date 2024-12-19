@@ -19,7 +19,7 @@ depth = ['-10-10','10-30','30-50','50-70','70-90','90+'];
 colors = ['Lavender','thistle','Plum','Violet','Hotpink','Purple']
 
 function getColor(d)
-// This function takes a value d and returns a color string based on its magnitude. 
+// This function takes the value of d and returns a color string based on its magnitude. 
 {
   // Passing the earthquake depth data points into the circle color function
   return  d > 90 ?  colors[5]:
@@ -121,7 +121,7 @@ function createMap(earthquakes)
   // Create a layer control.
   L.control.layers
  (
-  // Pass it to the  baseMaps and overlayMaps. 
+  // Pass the layer control to the baseMaps and overlayMaps. 
   baseMaps, overlayMaps, 
   {collapsed: false}
   // Add the layer control to the map.
