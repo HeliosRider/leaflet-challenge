@@ -2,9 +2,10 @@
     Earthquake mapping
     Code input references: 
         1. "https://leafletjs.com/examples.html"
-        2. "https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php"
-            2.1. "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
-
+        2. "https://stackoverflow.com/questions/28168879"
+        3. "https://gis.stackexchange.com/questions/355100/vuejs-leaflet-get-color-function"
+        4. "https://www.google.com/search?q=new+date(feature.properties.time)+javascript&rlz"
+        
 # Background
    The United States Geological Survey (USGS) is interested in building a new set of tools that will allow them to visualize their earthquake data. They collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. 
 
