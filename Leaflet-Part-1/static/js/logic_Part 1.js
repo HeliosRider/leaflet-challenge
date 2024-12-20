@@ -1,4 +1,4 @@
-// first, assign the earthquake geoJSON URL to the usgsUrl variable
+// First, assign the earthquake geoJSON URL to the usgsUrl variable
 const usgsURL = ("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
 
 // Confirmed the variable assignment response
