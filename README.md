@@ -1,11 +1,16 @@
 # Leaflet-Challenge
-    Mapping of United States Geological Survey (USGS) earthquake data.
+    This challenge presents two parts:
+    1. Part-1: Create the Earthquake Visualization
+    2. Part-2: Gather and Plot Extra Data (Optional)
+   
+   For the purposes of this assignment part-1 of the challenge will be submitted only.  
          
 # Background
-    The USGS is interested in building a new set of tools that will allow them to visualize their earthquake data. They collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. 
+   The USGS is interested in building a new set of tools that will allow them to visualize their earthquake data. They collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. 
 
 # Task
-    Develop a way to visualize USGS data that will allow the USGS to better educate the public and other government organizations on issues facing the planet. 
+   Mapping of United States Geological Survey (USGS) earthquake data. 
+    1. Develop a way to visualize USGS data that will allow the USGS to better educate the public and other government organizations on issues facing the planet. 
 
 # Data Engineering
     1. CSS

@@ -1,21 +1,21 @@
-// First, assign the earthquake geoJSON URL to the usgsUrl variable
-const usgsURL = ("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson")
+// First, we assign the data set url to a new url name.
+const usgsURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
 
-// Confirmed the variable assignment response
+// The console.log() is used thorughout the code to print the given parameter results on the console.
 console.log(usgsURL)
 
 // Here we perform a GET request to retrieve the earthquake geoJSON data
 d3.json(usgsURL).then
-  ((data) => { 
+  ((data) => 
+    { 
     // This function returns the style data for each of the earthquakes we plot on
     // the map. We pass the magnitude of the earthquake into two separate functions
     // to calculate the color and radius.
-
-    console.log(data.features); // This function verifies the response
+    console.log(data.features); 
     
     // Once the response is verified, send the data.features object to the createFeatures function.
     createFeatures(data.features);
-  }
+    }
   );
 
 // Here we assign the earthquake depth data points and colors to an array.
@@ -39,7 +39,8 @@ function getColor(d)
               colors[6];
 }
 
-function createFeatures(earthquakeData) {
+function createFeatures(earthquakeData) 
+{
   console.log(earthquakeData);
 
   // Here we define the function that runs once for each feature in the features array and 
@@ -80,7 +81,8 @@ function createFeatures(earthquakeData) {
   createMap(earthquakes);
 }
 
-function createMap(earthquakes) { 
+function createMap(earthquakes) 
+{ 
   // Here we create the tile layer that will be the background of our map
   // Reference (e)
   let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -92,16 +94,11 @@ function createMap(earthquakes) {
 
   // Here we create a baseMaps object.
   let baseMaps =
-  {
-    "Street Map": street,
-    "Topographic Map": topGraph
-  };
+  {"Street Map": street, "Topographic Map": topGraph};
 
   //  Here we create an overlay object to hold our overlay.
   let overlayMaps =
-  {
-    Earthquakes: earthquakes
-  };
+  { Earthquakes: earthquakes};
 
   // Here we create our map, giving it the streetmap and earthquakes layers to display on load.
   let map = L.map("map",
@@ -120,7 +117,8 @@ function createMap(earthquakes) {
   let legend = L.control({ position: 'bottomright' });
   legend.onAdd = function () {
     let div = L.DomUtil.create('div', 'info legend');
- // here we Loop through our intervals to generate a label with a colored square for each interval.
+
+ // Here we Loop through our intervals to generate a label with a colored square for each interval.
     for (let i = 0; i < depth.length; i++) {
       let item = `<li style='background: ${colors[i]} '></li>${depth[i]}<br>`
       console.log(item);
@@ -130,13 +128,14 @@ function createMap(earthquakes) {
   };
   legend.addTo(map);
 
-  // Create a layer control.
+  // He we create the layer control.
   L.control.layers
     (
-      // Pass the layer control to the baseMaps and overlayMaps. 
+      // Here pass the layer control to the baseMaps and overlayMaps. 
       baseMaps, overlayMaps,
       { collapsed: false }
-      // Add the layer control to the map.
+
+      // Here we add the layer control to the map.
     ).addTo(map);
 }
 
