@@ -1,4 +1,4 @@
-// First, we assign the data set url to a new url name.
+// First, assign the data set of the url to a new url name.
 const usgsURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
 
 // The console.log() is used throughout the script to print the given parameter results on the console.
