@@ -1,7 +1,7 @@
 // First, we assign the data set url to a new url name.
 const usgsURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
 
-// The console.log() is used thorughout the code to print the given parameter results on the console.
+// The console.log() is used throughout the script to print the given parameter results on the console.
 console.log(usgsURL)
 
 // Here we perform a GET request to retrieve the earthquake geoJSON data
